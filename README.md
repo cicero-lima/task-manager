@@ -93,21 +93,19 @@ Para executar a API utilizando Docker, siga os passos abaixo:
     docker run -p 5000:80 -e MONGO_URI="mongodb://host.docker.internal:27017/task_api_db" task-api-image
     ```
 
-Exemplo de como modificar o app.py para ler MONGO_URI da variável de ambiente:
+**Exemplo de como modificar o `app.py` para ler `MONGO_URI` da variável de ambiente:**
+
+Para permitir que sua aplicação Flask utilize a variável de ambiente `MONGO_URI` configurada no Docker (ou externamente), você precisa modificar o arquivo `app.py` para ler essa variável. Veja o exemplo abaixo:
+
+\`\`\`python
 # task_api/app.py
-import os # Importe a biblioteca 'os'
+import os  # Importe a biblioteca 'os'
 
 from flask import Flask
 from flask_pymongo import PyMongo
 
 app = Flask(__name__)
 
-# Tenta obter MONGO_URI da variável de ambiente, se não existir, usa um valor padrão
-app.config["MONGO_URI"] = os.environ.get("MONGO_URI", "mongodb://localhost:27017/task_api_db")
-mongo = PyMongo(app)
-db = mongo.db
-
-# ... restante do seu código ...
 
     **Explicação dos parâmetros do `docker run`:**
 
