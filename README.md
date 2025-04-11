@@ -6,6 +6,7 @@
 
 Uma API RESTful elegante e eficiente para gerenciar suas tarefas diárias, construída com Python, Flask e MongoDB. Simplifique sua organização pessoal com esta solução robusta e fácil de usar!
 
+Vídeo de demonstração: https://www.loom.com/share/ea5f8d0b779542938a8918f312da1c39
 
 ## ✨ Funcionalidades Principais
 
