@@ -1,0 +1,7 @@
+Flask
+flask-pymongo
+pymongo
+pydantic
+flask-cors
+pytest
+gunicorn==20.1.0
