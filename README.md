@@ -120,3 +120,51 @@ Para executar a API utilizando Docker, siga os passos abaixo:
     *   `task-api-image`: O nome da imagem Docker que você construiu no passo anterior.
 
     Após executar este comando, a API estará acessível através de `http://localhost:5000`.
+
+## 🧪 Executando os Testes Unitários
+
+Para garantir a qualidade e o funcionamento correto da API, testes unitários foram implementados usando `pytest`. Siga os passos abaixo para executar os testes e verificar se tudo está funcionando como esperado:
+
+1.  **Certifique-se de ter o Ambiente Preparado:**
+
+    Primeiramente, você precisa ter o ambiente de desenvolvimento configurado. Isso significa que você deve ter seguido os passos de "Como Executar a Aplicação Localmente" até o passo 3, que inclui:
+    *   Clonar o repositório
+    *   Criar e ativar um ambiente virtual (recomendado)
+    *   Instalar as dependências do projeto (com `pip install -r requirements.txt`)
+
+2.  **Navegue até o Diretório Raiz do Projeto:**
+
+    Abra um terminal e utilize o comando `cd` para ir para o diretório principal do seu projeto `task_api`. Este é o diretório onde você encontra o arquivo `app.py`, a pasta `tests/` e o arquivo `requirements.txt`.
+
+3.  **Execute o Comando `pytest`:**
+
+    Com o terminal aberto no diretório raiz do projeto, execute o comando simples:
+
+    ```bash
+    pytest
+    ```
+
+    `pytest` é inteligente o suficiente para descobrir automaticamente os arquivos de teste (geralmente na pasta `tests/` e com nomes começando com `test_` ou terminando em `_test`) e executar as funções de teste dentro deles.
+
+4.  **Analise o Resultado dos Testes:**
+
+    Após a execução do comando `pytest`, você verá um relatório no terminal. Este relatório informará se os testes passaram ou falharam.
+
+    *   **Testes Passando:** Se todos os testes estiverem passando, você verá uma saída semelhante a:
+
+        ```
+        ============================= test session starts ==============================
+        ...
+        ============================== <N> passed in <tempo>s ===============================
+        ```
+
+        Onde `<N>` é o número de testes executados e `passed` indica que todos foram bem-sucedidos. Parabéns! Sua API está funcionando corretamente, de acordo com os testes unitários.
+
+    *   **Testes Falhando:** Se algum teste falhar, a saída será diferente e indicará os testes que falharam, juntamente com informações sobre a falha (traceback, asserção que falhou, etc.).  Examine cuidadosamente a saída para entender o motivo da falha e corrija o código ou os testes conforme necessário.
+
+5.  **Interpretação e Ações:**
+
+    *   **Todos os testes passam:** Isso é o ideal! Significa que as funcionalidades básicas da sua API estão funcionando conforme o esperado, e você pode ter mais confiança em prosseguir com o desenvolvimento ou deployment.
+    *   **Testes falham:**  Não se preocupe, testes falhando são parte do processo de desenvolvimento. Use as informações fornecidas pelo `pytest` para depurar e corrigir o código. Pode ser que você tenha encontrado um bug no código da API ou um erro nos próprios testes.
+
+    Executar os testes unitários regularmente é uma prática fundamental para garantir a qualidade do código e evitar regressões ao longo do tempo.
