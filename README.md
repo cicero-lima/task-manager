@@ -72,3 +72,31 @@ Siga estes passos simples para ter a API rodando em sua máquina:
     ```
 
     A API estará acessível em `http://127.0.0.1:5000/`.
+
+## 🐳 Executando com Docker (Opcional)
+
+Para executar a API utilizando Docker, siga os passos abaixo:
+
+1.  **Construa a Imagem Docker:**
+
+    No terminal, navegue até a raiz do seu projeto (onde o `Dockerfile` está localizado) e execute o seguinte comando para construir a imagem Docker. Dê um nome à sua imagem, por exemplo, `task-api-image`.
+
+    ```bash
+    docker build -t task-api-image .
+    ```
+
+2.  **Execute o Contêiner Docker:**
+
+    Para executar a API em um contêiner Docker, você precisa garantir que o contêiner possa se conectar ao seu servidor MongoDB. Se o MongoDB estiver rodando localmente na sua máquina host, você pode usar `host.docker.internal` para se referir ao endereço da sua máquina host dentro do contêiner.  Execute o seguinte comando para rodar o contêiner, mapeando a porta 80 do contêiner para a porta 5000 da sua máquina host (você pode ajustar as portas conforme necessário).
+
+    ```bash
+    docker run -p 5000:80 -e MONGO_URI="mongodb://host.docker.internal:27017/task_api_db" task-api-image
+    ```
+
+    **Explicação dos parâmetros do `docker run`:**
+
+    *   `-p 5000:80`: Mapeia a porta 80 do contêiner para a porta 5000 da sua máquina host. Você poderá acessar a API em `http://localhost:5000`.
+    *   `-e MONGO_URI="mongodb://host.docker.internal:27017/task_api_db"`: Define uma variável de ambiente `MONGO_URI` dentro do contêiner. Isso é crucial para configurar a conexão com o MongoDB. `host.docker.internal` é usado para conectar ao MongoDB rodando na máquina host. Se seu MongoDB estiver em outro lugar (ex: MongoDB Atlas), substitua `mongodb://host.docker.internal:27017/task_api_db` pela sua URI de conexão correta.
+    *   `task-api-image`: O nome da imagem Docker que você construiu no passo anterior.
+
+    Após executar este comando, a API estará acessível através de `http://localhost:5000`.
