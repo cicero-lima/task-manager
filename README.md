@@ -6,7 +6,6 @@
 
 Uma API RESTful elegante e eficiente para gerenciar suas tarefas diárias, construída com Python, Flask e MongoDB. Simplifique sua organização pessoal com esta solução robusta e fácil de usar!
 
-Vídeo de demonstração: https://youtu.be/YBuAwSEF6x4
 
 ## ✨ Funcionalidades Principais
 
